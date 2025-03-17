@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    bool isDebug = false;
+#if DEBUG
+    isDebug = true;
+#endif
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/index.css" />
+}
+
+<div class="text-center index-page">
+    <h1 class="title"><span id="titleText">Welcome to "Time left until end of work day"</span></h1>
+    <div class="mainDiv">
+        <div class="rowDiv" title="Current Time">
+            <span class="time-lable">Current Time:</span>
+            <span class="time" id="timeBoxNow">00:00:00</span>
+        </div>
+        <div class="clocksDiv">
+            <div class="rowDiv">
+                <span class="time-lable">Time Left:</span>
+                <span class="time" id="timeBoxLeft" title="Time Left">00:00:00</span>
+            </div>
+            <div class="rowDiv">
+                <span class="time-lable">Hours:</span>
+                <span class="time" id="timeBoxHours" title="Hours Left">0</span>
+            </div>
+            <div class="rowDiv">
+                <span class="time-lable">Minutes:</span>
+                <span class="time" id="timeBoxMinutes" title="Minutes Left">0</span>
+            </div>
+            <div class="rowDiv">
+                <span class="time-lable">Seconds:</span>
+                <span class="time" id="timeBoxSeconds" title="Seconds Left">0</span>
+            </div>
+            <div class="rowDiv">
+                <span class="time-lable">Milliseconds:</span>
+                <span class="time" id="timeBoxMilliseconds" title="Milliseconds Left">0</span>
+            </div>
+        </div>
+        <div class="messageBox">
+            <span id="workMessage"></span>
+            <span>Please keep your sanity!</span>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <span class="progress-text">100%</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.DEBUG_MODE = @isDebug.ToString().ToLower();
+</script>
+@section Scripts {
+    <script src="~/js/index.js" defer></script>
+}

@@ -1,0 +1,123 @@
+﻿:root {
+    --time-index: #f00; /* Start with red */
+    --progress-percent: #f00; /* Start with red */
+}
+
+.index-page {
+    cursor: default;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff0000, #ff7300, #ffeb00, #47ff00, #00ffee, #0000ff, #8000ff, #ff00ff);
+    background-size: 300% 100%; /* Makes the gradient bigger than the text */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent; /* Hide original text color */
+
+    animation: moveGradient 5s infinite alternate-reverse;
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.mainDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.clocksDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.rowDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.time-lable {
+    font-weight: bold;
+    flex: 1;
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #AAA;
+}
+
+.time {
+    flex: 1;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--time-index);
+}
+
+
+.progress-container {
+    margin-top: 5px;
+    width: 100%;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    width: var(--progress-percent);
+    height: 100%;
+    background-color: var(--time-index);
+    transition: width 1s linear, background-color 0.5s linear;
+}
+
+.progress-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.messageBox {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff0;
+}
+
+.not-work-hours {
+    display: none;
+    flex-direction: column;
+}
