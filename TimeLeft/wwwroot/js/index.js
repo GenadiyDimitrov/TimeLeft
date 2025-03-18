@@ -1,4 +1,4 @@
-﻿//constants for work hours
+﻿//constants for work hours - change if needed
 const startShift = 8;
 const startLunch = 12;
 const endLunch = 13;
@@ -25,19 +25,22 @@ const timeBoxSeconds = document.getElementById("timeBoxSeconds");
 const timeBoxMilliseconds = document.getElementById("timeBoxMilliseconds");
 
 
-//messages
+//messages - change automatically based on work hours, but the messages can be changed
 const beforeWorkMessage = `The work hours are from ${String(startShift).padStart(2, "0")}:00 to ${String(endShift).padStart(2, "0")}:00\n` +
     "It's not yet time to work\n" +
     "Why come so early?\n" +
-    "Relax. Sleep. Do other stuff....";
+    "Relax. Sleep. Do other stuff....\n" +
+    "Please keep your sanity!";
 const lunchBreakMessage = `You have a lunch Break from ${String(startLunch).padStart(2, "0")}:00 to ${String(endLunch).padStart(2, "0")}:00\n` +
     "It's not yet time to work\n" +
     "Please keep yourself healty!\n" +
-    "Relax. Eat something. Do other stuff....";
+    "Relax. Eat something. Do other stuff....\n" +
+    "Please keep your sanity!";
 const afterWorkMessage = `The work hours are from ${String(startShift).padStart(2, "0")}:00 to ${String(endShift).padStart(2, "0")}:00\n` +
     "It's after hours!\n" +
     "Why are you still here?\n" +
-    "Just stop and go HOME!";
+    "Just stop and go HOME!\n" +
+    "Please keep your sanity!";
 const beforeWorkTitle = "Go away! Not yet time to start working!";
 const beforeLunchTitle = `Welcome to "Wait until Lunch Time"`;
 const lunchBreakTitle = "Go away! You must be relaxing!";
@@ -51,7 +54,7 @@ let minIndex = 0;
 function getTime() {
     let now = new Date();
     if (window.DEBUG_MODE) {
-        if (hourIndex < 8 || hourIndex >= 17) {
+        if (hourIndex < startShift || hourIndex >= endShift) {
             minIndex = 0;
             hourIndex += 1;
             if (hourIndex >= 24) { hourIndex = 0; }
@@ -165,4 +168,4 @@ function updateTime(timeLeft) {
 setInterval(timerTick, 1000);
 
 // Initialize time on page load
-document.addEventListener("DOMContentLoaded", updateTime);
+document.addEventListener("DOMContentLoaded", timerTick);
