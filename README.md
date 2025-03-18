@@ -11,7 +11,8 @@ This **ASP.NET-powered** web app keeps track of both, so you don’t have to!
 
 ## 🛠️ Tech Stack  
 - **ASP.NET** – Because we like structure.  
-- **HTML + CSS** – So it looks nice while you wait.  
+- **HTML** – Because text needs a home.
+- **CSS** – To make it look slightly better than Times New Roman. 
 - **JavaScript** – Making time-watching *almost* fun.  
 
 ## 🚀 How to Run  
